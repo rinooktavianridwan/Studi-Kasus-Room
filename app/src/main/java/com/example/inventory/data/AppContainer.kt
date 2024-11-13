@@ -28,11 +28,17 @@ interface AppContainer {
 /**
  * [AppContainer] implementation that provides instance of [OfflineItemsRepository]
  */
+/**
+ * AppDataContainer adalah implementasi dari AppContainer yang digunakan untuk mengelola dependency.
+ * Pada implementasi ini, class menyediakan instance ItemsRepository yang menggunakan OfflineItemsRepository.
+ */
 class AppDataContainer(private val context: Context) : AppContainer {
     /**
      * Implementation for [ItemsRepository]
      */
+    // Mendapatkan instance ItemsRepository menggunakan OfflineItemsRepository.
+    // Instance database diambil melalui InventoryDatabase, dan DAO diteruskan ke repositori.
     override val itemsRepository: ItemsRepository by lazy {
-        OfflineItemsRepository()
+        OfflineItemsRepository(InventoryDatabase.getDatabase(context).itemDao())
     }
 }

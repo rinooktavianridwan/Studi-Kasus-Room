@@ -16,12 +16,30 @@
 
 package com.example.inventory.data
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 
 /**
  * Entity data class represents a single row in the database.
  */
+/**
+ * Data class Item mewakili sebuah entity dalam tabel database dengan nama "items".
+ * Anotasi @Entity digunakan untuk memberitahu Room agar membuat tabel bernama "items"
+ * di database, sesuai struktur yang ada di dalam class ini.
+ */
+@Entity(tableName = "items")
 class Item(
+    /**
+     * @PrimaryKey(autoGenerate = true) pada kolom id menunjukkan bahwa setiap item
+     * akan memiliki ID unik yang dibuat secara otomatis.
+     */
+    @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
+    /**
+     * Kolom lainnya (name, price, quantity) menyimpan detail item inventaris
+     * seperti nama, harga, dan jumlah stok yang tersedia.
+     */
     val name: String,
     val price: Double,
     val quantity: Int

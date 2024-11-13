@@ -81,4 +81,15 @@ dependencies {
     // Testing
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
+
+    //Room
+    /*
+    Menambahkan dependensi Room mencakup runtime inti, compiler, dan ekstensi Kotlin.
+    Dengan begitu dapat menyediakan alat untuk membuat dan mengelola database lokal secara efisien
+    menggunakan entitas, DAO, serta fitur Kotlin seperti coroutine.
+    */
+    val roomVersion = "2.6.1"
+    implementation("androidx.room:room-runtime:${roomVersion}")
+    ksp("androidx.room:room-compiler:${roomVersion}")
+    implementation("androidx.room:room-ktx:${roomVersion}")
 }

@@ -40,8 +40,11 @@ object AppViewModelProvider {
             )
         }
         // Initializer for ItemEntryViewModel
+        /**
+         * Menginisialisasi ItemEntryViewModel dengan akses ke itemsRepository yang diperlukan untuk menyimpan item ke database.
+         */
         initializer {
-            ItemEntryViewModel()
+            ItemEntryViewModel(inventoryApplication().container.itemsRepository)
         }
 
         // Initializer for ItemDetailsViewModel
